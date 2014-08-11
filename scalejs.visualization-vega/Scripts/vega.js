@@ -3832,8 +3832,8 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
   };
 
   return treemap;
-}; vg.data.sunburst = function () {
-    var layout = d3.layout.sunburst()
+};vg.data.sunburst = function () {
+    var layout = d3.layout.partition()
                    .children(function (d) { return d.values; }),
         value = vg.accessor("data"),
         size = ["width", "height"],

@@ -5,6 +5,8 @@
     <OutputType>Library</OutputType>
     <OutputPath>js</OutputPath>
     <JSLintSkip>\Scripts\</JSLintSkip>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Properties\build.rjs" />

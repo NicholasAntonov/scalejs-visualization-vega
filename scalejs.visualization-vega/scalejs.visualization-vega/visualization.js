@@ -111,7 +111,7 @@ define([
         };
 
         var treeSpec = {
-            "name": "treemap",
+            "name": "sunburst",
             "width": 960,
             "height": 500,
             "padding": 2.5,
@@ -121,7 +121,7 @@ define([
                   "values": parameters.data,
                   "format": { "type": "treejson" },
                   "transform": [
-                    { "type": "treemap", "value": "data.size" }
+                    { "type": "sunburst", "value": "data.size" }
                   ]
               }
             ],
