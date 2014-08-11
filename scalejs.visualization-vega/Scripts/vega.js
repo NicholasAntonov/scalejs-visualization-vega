@@ -3832,7 +3832,7 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
   };
 
   return treemap;
-};vg.data.sunburst = function () {
+}; vg.data.sunburst = function () {
     var layout = d3.layout.sunburst()
                    .children(function (d) { return d.values; }),
         value = vg.accessor("data"),
