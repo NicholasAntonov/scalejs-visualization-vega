@@ -93,8 +93,10 @@ define([
             ]
         };
 
+        element.setAttribute("id", "vega-vis-div");//ERROR this only allows for one vis per page, fix later
+
         vg.parse.spec(vegaSpec, function (chart) {
-            var view = chart({ el: "#view", data: data }).update();
+            var view = chart({ el: "#vega-vis-div", data: data }).update();
         });
     }
 
