@@ -12,6 +12,7 @@ define([
         var // Imports
             // Variables
             parameters = valueAccessor(),
+            view,
             data,
             vegaSpec;
 
@@ -112,12 +113,12 @@ define([
         element.setAttribute("id", "vega-vis-div");//ERROR this only allows for one vis per page, fix later
 
         vg.parse.spec(vegaSpec, function (chart) {
-            var view = chart({ el: "#vega-vis-div", data: data }).update();
+            view = chart({ el: "#vega-vis-div", data: data }).update();
         });
 
         setTimeout(function () {
             vg.parse.spec(vegaSpec, function (chart) {
-                view = chart({ el: "#vega-vis-div", data: data2 }).update({ duration: 500, ease: "bounce-in" });
+                view.data(data2).update({ duration: 1000, ease: "cubic" });
             });
         }, 3000);
     }
