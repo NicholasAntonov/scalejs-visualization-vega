@@ -3895,7 +3895,6 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
     };
 
     return icicle;
-    size = sz;
 }; vg.data.sunburst = function () {
     var layout = d3.layout.partition()
                    .children(function (d) { return d.values; }),
@@ -3915,18 +3914,11 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
           .value(value)
           .nodes(vg.isTree(data) ? data : { values: data });
 
-        var keys = vg.keys(output),
-            len = keys.length;
         data.forEach(function (d) {
-            var key, val;
-            for (var i = 0; i < len; ++i) {
-                key = keys[i];
-                if (key !== output[key]) {
-                    val = d[key];
-                    delete d[key];
-                    d[output[key]] = val;
-                }
-            }
+            d.startAngle = d.x;
+            d.endAngle = d.x + d.dx;
+            d.innerRadius = Math.sqrt(d.y);
+            d.outerRadius = Math.sqrt(d.y + d.dy);
         });
 
         return data;
@@ -3959,7 +3951,6 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
     };
 
     return sunburst;
-    size = sz;
 };vg.data.truncate = function () {
   var value = vg.accessor("data"),
       as = "truncate",

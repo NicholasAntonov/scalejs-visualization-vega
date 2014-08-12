@@ -121,7 +121,7 @@ define([
                   "values": parameters.data,
                   "format": { "type": "treejson" },
                   "transform": [
-                    { "type": "icicle", "value": "data.size" }
+                    { "type": "sunburst", "value": "data.size" }
                   ]
               }
             ],
@@ -151,18 +151,21 @@ define([
             ],
             "marks": [
               {
-                  "type": "rect",
+                  "type": "arc",
                   "from": {
                       "data": "tree"
                   },
                   "interactive": false,
                   "properties": {
                       "enter": {
-                          "x": { "field": "x" },
-                          "y": { "field": "y" },
-                          "width": { "field": "width" },
-                          "height": { "field": "height" },
+                          "x": { "group": "width", "mult": 0.5 },
+                          "y": { "group": "height", "mult": 0.5 },
+                          "innerRadius": { "field": "innerRadius" },
+                          "startAngle": { "field": "startAngle" },
+                          "outerRadius": { "field": "outerRadius" },
+                          "endAngle": { "field": "endAngle" },
                           "fill": { "scale": "color", "field": "data.name" }
+                          //"fill": { "value": "#ccc" }
                       }
                   }
               },
@@ -173,10 +176,10 @@ define([
                   },
                   "properties": {
                       "enter": {
-                          "x": { "field": "x" },
-                          "y": { "field": "y" },
-                          "width": { "field": "width" },
-                          "height": { "field": "height" },
+                          "innerRadius": { "field": "innerRadius" },
+                          "startAngle": { "field": "startAngle" },
+                          "outerRadius": { "field": "outerRadius" },
+                          "endAngle": { "field": "endAngle" },
                           "stroke": { "value": "#fff" }
                       },
                       "update": {
