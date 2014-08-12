@@ -3916,9 +3916,9 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
 
         data.forEach(function (d) {
             d.startAngle = d.x;
-            d.endAngle = d.x + d.dx;
-            d.innerRadius = Math.sqrt(d.y);
-            d.outerRadius = Math.sqrt(d.y + d.dy);
+            d.endAngle = d.dx;
+            d.innerRadius = d.y / 2;
+            d.outerRadius = (d.y + d.dy) / 2;
         });
 
         return data;

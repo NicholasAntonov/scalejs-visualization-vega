@@ -112,7 +112,7 @@ define([
 
         var treeSpec = {
             "name": "sunburst",
-            "width": 960,
+            "width": 500,
             "height": 500,
             "padding": 2.5,
             "data": [
@@ -165,17 +165,18 @@ define([
                           "outerRadius": { "field": "outerRadius" },
                           "endAngle": { "field": "endAngle" },
                           "fill": { "scale": "color", "field": "data.name" }
-                          //"fill": { "value": "#ccc" }
                       }
                   }
-              },
+              }/*,
               {
-                  "type": "rect",
+                  "type": "arc",
                   "from": {
                       "data": "tree"
                   },
                   "properties": {
                       "enter": {
+                          "x": { "group": "width", "mult": 0.5 },
+                          "y": { "group": "height", "mult": 0.5 },
                           "innerRadius": { "field": "innerRadius" },
                           "startAngle": { "field": "startAngle" },
                           "outerRadius": { "field": "outerRadius" },
@@ -189,7 +190,7 @@ define([
                           "fill": { "value": "red" }
                       }
                   }
-              },
+              }/*,
               {
                   "type": "text",
                   "from": {
@@ -212,7 +213,7 @@ define([
                           "text": { "field": "data.name" }
                       }
                   }
-              }
+              }*/
             ]
         };
 
