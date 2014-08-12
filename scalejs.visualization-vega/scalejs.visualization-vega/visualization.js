@@ -153,8 +153,7 @@ define([
               {
                   "type": "rect",
                   "from": {
-                      "data": "tree",
-                      "transform": [{ "type": "filter", "test": "d.values" }]
+                      "data": "tree"
                   },
                   "interactive": false,
                   "properties": {
@@ -170,8 +169,7 @@ define([
               {
                   "type": "rect",
                   "from": {
-                      "data": "tree",
-                      "transform": [{ "type": "filter", "test": "!d.values" }]
+                      "data": "tree"
                   },
                   "properties": {
                       "enter": {
@@ -193,7 +191,7 @@ define([
                   "type": "text",
                   "from": {
                       "data": "tree",
-                      "transform": [{ "type": "filter", "test": "d.values" }]
+                      "transform": [{ "type": "filter","test": "d.values" }]
                   },
                   "interactive": false,
                   "properties": {
