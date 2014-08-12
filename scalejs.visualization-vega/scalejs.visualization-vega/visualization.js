@@ -121,7 +121,7 @@ define([
                   "values": parameters.data,
                   "format": { "type": "treejson" },
                   "transform": [
-                    { "type": "sunburst", "value": "data.size" }
+                    { "type": "icicle", "value": "data.size" }
                   ]
               }
             ],

@@ -3832,7 +3832,71 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
   };
 
   return treemap;
-};vg.data.sunburst = function () {
+};vg.data.icicle = function () {
+    var layout = d3.layout.partition()
+                   .children(function (d) { return d.values; }),
+        value = vg.accessor("data"),
+        size = ["width", "height"],
+        params = ["round", "sticky", "ratio", "padding"],
+        output = {
+            "x": "x",
+            "y": "y",
+            "dx": "width",
+            "dy": "height"
+        };
+
+    function icicle(data, db, group) {
+        data = layout
+          .size(vg.data.size(size, group))
+          .value(value)
+          .nodes(vg.isTree(data) ? data : { values: data });
+
+        var keys = vg.keys(output),
+            len = keys.length;
+        data.forEach(function (d) {
+            var key, val;
+            for (var i = 0; i < len; ++i) {
+                key = keys[i];
+                if (key !== output[key]) {
+                    val = d[key];
+                    delete d[key];
+                    d[output[key]] = val;
+                }
+            }
+        });
+
+        return data;
+    }
+
+    icicle.size = function (sz) {
+        size = sz;
+        return icicle;
+    };
+
+    icicle.value = function (field) {
+        value = vg.accessor(field);
+        return icicle;
+    };
+
+    params.forEach(function (name) {
+        icicle[name] = function (x) {
+            layout[name](x);
+            return icicle;
+        }
+    });
+
+    icicle.output = function (map) {
+        vg.keys(output).forEach(function (k) {
+            if (map[k] !== undefined) {
+                output[k] = map[k];
+            }
+        });
+        return icicle;
+    };
+
+    return icicle;
+    size = sz;
+}; vg.data.sunburst = function () {
     var layout = d3.layout.partition()
                    .children(function (d) { return d.values; }),
         value = vg.accessor("data"),
@@ -3895,6 +3959,7 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
     };
 
     return sunburst;
+    size = sz;
 };vg.data.truncate = function () {
   var value = vg.accessor("data"),
       as = "truncate",
