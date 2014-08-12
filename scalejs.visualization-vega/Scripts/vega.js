@@ -3914,9 +3914,15 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
           .value(value)
           .nodes(vg.isTree(data) ? data : { values: data });
 
+        var maxWidth = data[0].dx;
+        var maxAngle = Math.PI * 2;
+
         data.forEach(function (d) {
-            d.startAngle = d.x;
-            d.endAngle = d.dx;
+            var theta = d.dx * maxAngle / maxWidth;
+            var initialAngle = d.x * maxAngle / maxWidth;
+            d.startAngle = initialAngle;
+            d.midAngle = initialAngle + (theta / 2);
+            d.endAngle = initialAngle + theta;
             d.innerRadius = d.y / 2;
             d.outerRadius = (d.y + d.dy) / 2;
         });
