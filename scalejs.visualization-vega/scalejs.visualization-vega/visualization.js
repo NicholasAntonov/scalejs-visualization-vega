@@ -167,7 +167,7 @@ define([
                           "fill": { "scale": "color", "field": "data.name" }
                       }
                   }
-              }/*,
+              },
               {
                   "type": "arc",
                   "from": {
