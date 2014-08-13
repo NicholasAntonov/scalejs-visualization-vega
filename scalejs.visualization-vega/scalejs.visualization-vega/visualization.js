@@ -139,14 +139,20 @@ define([
               {
                   "name": "size",
                   "type": "ordinal",
-                  "domain": [0, 1, 2, 3],
-                  "range": [256, 28, 20, 14]
+                  "domain": [0, 1, 2, 3, 4],
+                  "range": [256, 28, 20, 14, 6]
               },
               {
                   "name": "opacity",
                   "type": "ordinal",
                   "domain": [0, 1, 2, 3],
                   "range": [0.15, 0.5, 0.8, 1.0]
+              },
+              {
+                  "name": "r",
+                  "type": "sqrt",
+                  "domain": { "data": "table", "field": "data.size" },
+                  "range": [20, 100]
               }
             ],
             "marks": [
@@ -190,7 +196,7 @@ define([
                           "fill": { "value": "red" }
                       }
                   }
-              }/*,
+              },
               {
                   "type": "text",
                   "from": {
@@ -200,20 +206,20 @@ define([
                   "interactive": false,
                   "properties": {
                       "enter": {
-                          "x": { "field": "x" },
-                          "y": { "field": "y" },
-                          "dx": { "field": "width", "mult": 0.5 },
-                          "dy": { "field": "height", "mult": 0.5 },
-                          "font": { "value": "Helvetica Neue" },
-                          "fontSize": { "scale": "size", "field": "depth" },
-                          "align": { "value": "center" },
+                          "x": { "group": "width", "mult": 0.5 },
+                          "y": { "group": "height", "mult": 0.5 },
+                          "theta": { "field": "midAngle" },
+                          "angle": { "field": "midAngle" },
+                          "radius": { "field": "innerRadius" },
+                          "font": { "value": "Times New Roman" },
+                          "fontSize": { "value": "14" },
+                          "align": { "value": "left" },
                           "baseline": { "value": "middle" },
                           "fill": { "value": "#000" },
-                          "fillOpacity": { "scale": "opacity", "field": "depth" },
                           "text": { "field": "data.name" }
                       }
                   }
-              }*/
+              }
             ]
         };
 
