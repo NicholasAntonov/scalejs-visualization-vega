@@ -3909,31 +3909,40 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
         };
 
     function sunburst(data, db, group) {
+        var maxWidth,
+            maxAngle;
+
         data = layout
           .size(vg.data.size(size, group))
           .value(value)
           .nodes(vg.isTree(data) ? data : { values: data });
 
-        var maxWidth = data[0].dx;
-        var maxAngle = Math.PI * 2;
+        maxWidth = layout.size()[0],
+        maxAngle = Math.PI * 2;
+        
 
         data.forEach(function (d) {
-            var theta = d.dx * maxAngle / maxWidth;
-            var initialAngle = d.x * maxAngle / maxWidth;
-            d.align = 'left';
+            var theta = d.dx * maxAngle / maxWidth,
+                initialAngle = d.x * maxAngle / maxWidth;
+
+            d.innerRadius = d.y / 2;
+            d.outerRadius = (d.y + d.dy) / 2;
+            
             d.startAngle = initialAngle;
             d.midAngle = initialAngle + (theta / 2);
             d.endAngle = initialAngle + theta;
-            d.textAngle = d.midAngle * 57.2957795 - 90;
-            if ((d.startAngle === 0) && (d.endAngle > maxAngle * 0.95)) {
+
+            // Handle complicated text placement
+            d.textAlign = 'left';
+            d.textAngle = d.midAngle * 57.2957795 - 90; // Convert to degrees
+            if ((d.startAngle === 0) && (d.endAngle > maxAngle * 0.99)) { // If it is a full circle
                 d.textAngle = 0;
-                d.align = 'center';
+                d.textAlign = 'center';
+            // Flip Upside Down Text
             } else if (d.textAngle > 90) {
                 d.textAngle -= 180;
-                d.align = 'right';
+                d.textAlign = 'right';
             }
-            d.innerRadius = d.y / 2;
-            d.outerRadius = (d.y + d.dy) / 2;
         });
 
         return data;
