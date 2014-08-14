@@ -8,20 +8,30 @@ define([
 ) {
     'use strict';
 
+    var nextUid;
+
+    nextUid = (function () {
+        var counter = 1;
+        return function () {
+            return counter++;
+        };
+    }());
+
     function init(element, valueAccessor) {
         var // Imports
             // Variables
             parameters = valueAccessor(),
+            elementID,
             view,
             vegaSpec;
 
         vegaSpec = parameters.vegaSpec;
 
-
-        element.setAttribute("id", "vega-vis-div");//ERROR this only allows for one vis per page, fix later
+        elementID = "vega-vis-div-" + nextUid();
+        element.setAttribute("id", elementID);
 
         vg.parse.spec(vegaSpec, function (chart) {
-            view = chart({ el: "#vega-vis-div" }).update();
+            view = chart({ el: ("#" + elementID) }).update();
         });
     }
 
