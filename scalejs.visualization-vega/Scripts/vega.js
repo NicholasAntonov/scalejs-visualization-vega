@@ -3920,9 +3920,18 @@ vg.data.force.dependencies = ["links"];vg.data.formula = (function() {
         data.forEach(function (d) {
             var theta = d.dx * maxAngle / maxWidth;
             var initialAngle = d.x * maxAngle / maxWidth;
+            d.align = 'left';
             d.startAngle = initialAngle;
             d.midAngle = initialAngle + (theta / 2);
             d.endAngle = initialAngle + theta;
+            d.textAngle = d.midAngle * 57.2957795 - 90;
+            if ((d.startAngle === 0) && (d.endAngle > maxAngle * 0.95)) {
+                d.textAngle = 0;
+                d.align = 'center';
+            } else if (d.textAngle > 90) {
+                d.textAngle -= 180;
+                d.align = 'right';
+            }
             d.innerRadius = d.y / 2;
             d.outerRadius = (d.y + d.dy) / 2;
         });
