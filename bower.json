@@ -1,11 +1,11 @@
 {
-  "name": "vega",
+  "name": "scalejs.visualization-vega",
   "version": "0.0.0",
   "homepage": "",
   "authors": [],
   "description": "",
   "main": [
-    "dist/vega.min.js"
+    "dist/scalejs.visualization-vega.min.js"
   ],
   "ignore": [
     "*",
@@ -13,9 +13,9 @@
   ],
   "dependencies": {
     "scalejs": "lisovin/scalejs",
-    "vega": "https://github.com/trifacta/vega.git#~1.4.3",
-    "topojson": "~1.6.18",
-    "knockout": "~3.3.0"
+    "knockout": "~3.3.0",
+    "vega": "~1.4.3",
+    "topojson": "~1.6.18"
   },
   "devDependencies": {
     "requirejs": "latest"

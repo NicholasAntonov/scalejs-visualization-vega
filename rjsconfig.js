@@ -7,12 +7,12 @@ var require = {
     ]
   },
   paths: {
+    knockout: '../lib/knockout/dist/knockout',
     requirejs: '../lib/requirejs/require',
     scalejs: '../lib/scalejs/dist/scalejs.min',
-    vega: '../lib/vega/vega',
-    d3: '../lib/d3/d3',
     topojson: '../lib/topojson/topojson',
-    knockout: '../lib/knockout/dist/knockout'
+    vega: '../lib/vega/vega',
+    d3: '../lib/d3/d3'
   },
   packages: [
 

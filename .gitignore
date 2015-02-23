@@ -5,6 +5,8 @@ scalejs.visualization-vega/js/
 
 scalejs.visualization-vega/build/
 
+/lib/
+
 # User-specific files
 *.suo
 *.user

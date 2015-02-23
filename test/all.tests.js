@@ -3,7 +3,7 @@ require.config({
         boot: '../lib/jasmine/boot',
         'jasmine-html': '../lib/jasmine/jasmine-html',
         jasmine: '../lib/jasmine/jasmine',
-        'vega': '../build/vega'
+        'scalejs.visualization-vega': '../build/scalejs.visualization-vega'
     },
     shim: {
         jasmine: {
@@ -25,14 +25,14 @@ require.config({
     },
     scalejs: {
         extensions: [
-            'vega'
+            'scalejs.visualization-vega'
         ]
     }
 });
 
 require(['boot'], function () {
     require ([
-        './vega.test'
+        './scalejs.visualization-vega.test'
     ], function () {
         window.onload();
     });
