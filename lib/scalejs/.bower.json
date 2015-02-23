@@ -1,0 +1,36 @@
+{
+  "name": "scalejs",
+  "version": "0.4.0",
+  "homepage": "http://lisovin.github.io/scalejs/",
+  "authors": [
+    "Peter Lisovin <peter@lisovin.com>"
+  ],
+  "description": "Core of the scalable JavaScript application framework",
+  "main": [
+    "dist/scalejs.min.js"
+  ],
+  "ignore": [
+    "*",
+    "!dist/*.js"
+  ],
+  "keywords": [
+    "javascript",
+    "scalejs",
+    "scalable",
+    "application",
+    "framework"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "requirejs": "~2.1.14"
+  },
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "85104ad30bd07342557a191567573bb7a17393fb"
+  },
+  "_source": "git://github.com/lisovin/scalejs.git",
+  "_target": "*",
+  "_originalSource": "lisovin/scalejs"
+}

@@ -1,7 +1,0 @@
-﻿({
-	mainConfigFile: '../config.js',
-    include: 'scalejs.visualization-vega',
-    exclude: [
-        'scalejs!core'
-    ]
-})

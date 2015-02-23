@@ -1,0 +1,23 @@
+{
+  "name": "vega",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [],
+  "description": "",
+  "main": [
+    "dist/vega.min.js"
+  ],
+  "ignore": [
+    "*",
+    "!dist/*.js"
+  ],
+  "dependencies": {
+    "scalejs": "lisovin/scalejs",
+    "vega": "https://github.com/trifacta/vega.git#~1.4.3",
+    "topojson": "~1.6.18",
+    "knockout": "~3.3.0"
+  },
+  "devDependencies": {
+    "requirejs": "latest"
+  }
+}
