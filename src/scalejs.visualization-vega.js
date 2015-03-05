@@ -21,15 +21,18 @@ define([
                     parameters = valueAccessor(),
                     elementID,
                     view,
-                    vegaSpec;
+                    vegaSpec,
+                    render;
 
                 vegaSpec = parameters.vegaSpec;
+
+                render = parameters.render || 'canvas';
 
                 elementID = 'vega-vis-div-' + nextUid();
                 element.setAttribute('id', elementID);
 
                 vg.parse.spec(vegaSpec, function (chart) {
-                    view = chart({ el: ('#' + elementID) }).update();
+                    view = chart({ el: ('#' + elementID), renderer: render}).update();
                 });
             }
 
