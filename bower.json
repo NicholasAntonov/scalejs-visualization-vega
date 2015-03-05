@@ -13,9 +13,9 @@
   ],
   "dependencies": {
     "scalejs": "lisovin/scalejs",
-    "knockout": "~3.3.0",
-    "vega": "~1.4.3",
-    "topojson": "~1.6.18"
+    "knockout": "latest",
+    "vega": "latest"",
+    "topojson": latest"
   },
   "devDependencies": {
     "requirejs": "latest"
