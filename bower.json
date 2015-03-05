@@ -13,8 +13,8 @@
   ],
   "dependencies": {
     "scalejs": "lisovin/scalejs",
-    "knockout": ">=3.3.0",
-    "vega": ">=1.4.3",
+    "knockout": "~3.2.0",
+    "vega": "*",
     "topojson": ">=1.6.18"
   },
   "devDependencies": {
