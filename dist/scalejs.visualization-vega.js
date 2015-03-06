@@ -17715,6 +17715,10 @@ define('scalejs.visualization-vega',[
                 vg.parse.spec(vegaSpec, function (chart) {
                     view = chart({ el: ('#' + elementID), renderer: render}).update();
                 });
+
+                if(parameters.afterRender) {
+                    parameters.afterRender(view);
+                }
             }
 
             return {
